@@ -36,9 +36,9 @@ public class Lab1P2_CarlosBonilla {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
         System.out.println("Bienvenido/a a mi tarea :)");
-        System.out.println("1: Ejercicio 1");
-        System.out.println("2: Ejercicio 2");
-        System.out.println("3: Ejercicio 3");
+        System.out.println("1: Registrar Usuario");
+        System.out.println("2: Listar usuarios");
+        System.out.println("3: Listar usuarios por dominio");
         System.out.println("4: Salir");
         int menu = sc.nextInt();
         do {
@@ -104,10 +104,10 @@ public class Lab1P2_CarlosBonilla {
                     System.out.println("Se a añadido el correo exitosamente");
                     break;
                 case (2):
-                    Imprimir(correos,0);
+                    Imprimir(correos, 0);
                     break;
                 case (3):
-
+                    ImprimirPorDominioGmail(correos, 0);
                     break;
                 default:
             }
@@ -117,7 +117,7 @@ public class Lab1P2_CarlosBonilla {
             System.out.println("3: Ejercicio 3");
             System.out.println("4: Salir");
             menu = sc.nextInt();
-        } while (menu != 4);
+        } while (menu != 0);
         System.out.println("Saliendo del programa");
     }
 
@@ -144,12 +144,140 @@ public class Lab1P2_CarlosBonilla {
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
-public static void Imprimir(ArrayList<Correos> correos,int i){
-    if(i==correos.size()-1){
-        
-    }else{
-        System.out.println("nombre: "+ correos.get(i).getName());
-        System.out.println("contraseña: "+ correos.get(i).getEdad()+" de edad");
+
+    public static void Imprimir(ArrayList<Correos> correos, int i) {
+        if (i == correos.size() - 1) {
+
+        } else {
+            System.out.println("Nombre: " + correos.get(i).getName());
+            System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+            System.out.println("contraseña: " + correos.get(i).getPW());
+            Imprimir(correos, i + 1);
+        }
     }
-}
+
+    private static void ImprimirPorDominioGmail(ArrayList<Correos> correos, int i) {
+        if (i == 0) {
+            System.out.println("CORREOS DE GMAIL");
+            System.out.println("");
+            System.out.println("");
+        }
+        if (i == correos.size()) {
+            ImprimirPorDominioYahoo(correos, 0);
+        } else {
+            String[] correoActual = correos.get(i).getName().split("@");
+            if (correoActual[1].equalsIgnoreCase("gmail.com")) {
+                System.out.println("Nombre: " + correos.get(i).getName());
+                System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+                System.out.println("contraseña: " + correos.get(i).getPW());
+                ImprimirPorDominioGmail(correos, i + 1);
+            }
+
+        }
+    }
+
+    private static void ImprimirPorDominioYahoo(ArrayList<Correos> correos, int i) {
+        if (i == 0) {
+            System.out.println("CORREOS DE YAHOO");
+            System.out.println("");
+            System.out.println("");
+        }
+        if (i == correos.size()) {
+            ImprimirPorDominioOutlook(correos, 0);
+        } else {
+            String[] correoActual = correos.get(i).getName().split("@");
+            if (correoActual[1].equalsIgnoreCase("yahoo.com")) {
+                System.out.println("Nombre: " + correos.get(i).getName());
+                System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+                System.out.println("contraseña: " + correos.get(i).getPW());
+                ImprimirPorDominioYahoo(correos, i + 1);
+            }
+
+        }
+
+    }
+
+    private static void ImprimirPorDominioOutlook(ArrayList<Correos> correos, int i) {
+        if (i == 0) {
+            System.out.println("CORREOS DE OUTLOOK");
+            System.out.println("");
+            System.out.println("");
+        }
+        if (i == correos.size()) {
+            ImprimirPorDominioICloud(correos, 0);
+        } else {
+            String[] correoActual = correos.get(i).getName().split("@");
+            if (correoActual[1].equalsIgnoreCase("outlook.com")) {
+                System.out.println("Nombre: " + correos.get(i).getName());
+                System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+                System.out.println("contraseña: " + correos.get(i).getPW());
+                ImprimirPorDominioOutlook(correos, i + 1);
+            }
+
+        }
+
+    }
+
+    private static void ImprimirPorDominioICloud(ArrayList<Correos> correos, int i) {
+        if (i == 0) {
+            System.out.println("CORREOS DE ICLOUD");
+            System.out.println("");
+            System.out.println("");
+        }
+        if (i == correos.size()) {
+            ImprimirPorDominioProtonMail(correos, 0);
+        } else {
+            String[] correoActual = correos.get(i).getName().split("@");
+            if (correoActual[1].equalsIgnoreCase("icloud.com")) {
+                System.out.println("Nombre: " + correos.get(i).getName());
+                System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+                System.out.println("contraseña: " + correos.get(i).getPW());
+                ImprimirPorDominioICloud(correos, i + 1);
+            }
+
+        }
+
+    }
+
+    private static void ImprimirPorDominioProtonMail(ArrayList<Correos> correos, int i) {
+        if (i == 0) {
+            System.out.println("CORREOS DE PROTONMAIL");
+            System.out.println("");
+            System.out.println("");
+        }
+        if (i == correos.size()) {
+            ImprimirPorDominioFastMail(correos, 0);
+        } else {
+            String[] correoActual = correos.get(i).getName().split("@");
+            if (correoActual[1].equalsIgnoreCase("protonmail.com")) {
+                System.out.println("Nombre: " + correos.get(i).getName());
+                System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+                System.out.println("contraseña: " + correos.get(i).getPW());
+                ImprimirPorDominioProtonMail(correos, i + 1);
+            }
+
+        }
+
+    }
+
+    private static void ImprimirPorDominioFastMail(ArrayList<Correos> correos, int i) {
+        if (i == 0) {
+            System.out.println("CORREOS DE FASTMAIL");
+            System.out.println("");
+            System.out.println("");
+        }
+        if (i >= correos.size()) {
+            
+        } else {
+            String[] correoActual = correos.get(i).getName().split("@");
+            if (correoActual[1].equalsIgnoreCase("fastmail.com")) {
+                System.out.println("Nombre: " + correos.get(i).getName());
+                System.out.println("Edad: " + correos.get(i).getEdad() + " años");
+                System.out.println("contraseña: " + correos.get(i).getPW());
+                ImprimirPorDominioFastMail(correos, i + 1);
+            }
+
+        }
+
+    }
 }
