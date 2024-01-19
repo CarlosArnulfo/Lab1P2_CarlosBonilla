@@ -39,7 +39,7 @@ public class Lab1P2_CarlosBonilla {
         System.out.println("1: Registrar Usuario");
         System.out.println("2: Listar usuarios");
         System.out.println("3: Listar usuarios por dominio");
-        System.out.println("4: Salir");
+        System.out.println("0: Salir");
         int menu = sc.nextInt();
         do {
             edadSuficiente = false;
@@ -111,11 +111,11 @@ public class Lab1P2_CarlosBonilla {
                     break;
                 default:
             }
-            System.out.println("REINICIANDO");
-            System.out.println("1: Ejercicio 1");
-            System.out.println("2: Ejercicio 2");
-            System.out.println("3: Ejercicio 3");
-            System.out.println("4: Salir");
+            System.out.println("Bienvenido/a a mi tarea :)");
+            System.out.println("1: Registrar Usuario");
+            System.out.println("2: Listar usuarios");
+            System.out.println("3: Listar usuarios por dominio");
+            System.out.println("0: Salir");
             menu = sc.nextInt();
         } while (menu != 0);
         System.out.println("Saliendo del programa");
@@ -170,9 +170,9 @@ public class Lab1P2_CarlosBonilla {
                 System.out.println("Nombre: " + correos.get(i).getName());
                 System.out.println("Edad: " + correos.get(i).getEdad() + " años");
                 System.out.println("contraseña: " + correos.get(i).getPW());
-                ImprimirPorDominioGmail(correos, i + 1);
-            }
 
+            }
+            ImprimirPorDominioGmail(correos, i + 1);
         }
     }
 
@@ -190,9 +190,9 @@ public class Lab1P2_CarlosBonilla {
                 System.out.println("Nombre: " + correos.get(i).getName());
                 System.out.println("Edad: " + correos.get(i).getEdad() + " años");
                 System.out.println("contraseña: " + correos.get(i).getPW());
-                ImprimirPorDominioYahoo(correos, i + 1);
-            }
 
+            }
+            ImprimirPorDominioYahoo(correos, i + 1);
         }
 
     }
@@ -211,9 +211,9 @@ public class Lab1P2_CarlosBonilla {
                 System.out.println("Nombre: " + correos.get(i).getName());
                 System.out.println("Edad: " + correos.get(i).getEdad() + " años");
                 System.out.println("contraseña: " + correos.get(i).getPW());
-                ImprimirPorDominioOutlook(correos, i + 1);
-            }
 
+            }
+            ImprimirPorDominioOutlook(correos, i + 1);
         }
 
     }
@@ -232,9 +232,9 @@ public class Lab1P2_CarlosBonilla {
                 System.out.println("Nombre: " + correos.get(i).getName());
                 System.out.println("Edad: " + correos.get(i).getEdad() + " años");
                 System.out.println("contraseña: " + correos.get(i).getPW());
-                ImprimirPorDominioICloud(correos, i + 1);
-            }
 
+            }
+            ImprimirPorDominioICloud(correos, i + 1);
         }
 
     }
@@ -253,9 +253,9 @@ public class Lab1P2_CarlosBonilla {
                 System.out.println("Nombre: " + correos.get(i).getName());
                 System.out.println("Edad: " + correos.get(i).getEdad() + " años");
                 System.out.println("contraseña: " + correos.get(i).getPW());
-                ImprimirPorDominioProtonMail(correos, i + 1);
-            }
 
+            }
+            ImprimirPorDominioProtonMail(correos, i + 1);
         }
 
     }
@@ -267,16 +267,16 @@ public class Lab1P2_CarlosBonilla {
             System.out.println("");
         }
         if (i >= correos.size()) {
-            
+
         } else {
             String[] correoActual = correos.get(i).getName().split("@");
             if (correoActual[1].equalsIgnoreCase("fastmail.com")) {
                 System.out.println("Nombre: " + correos.get(i).getName());
                 System.out.println("Edad: " + correos.get(i).getEdad() + " años");
                 System.out.println("contraseña: " + correos.get(i).getPW());
-                ImprimirPorDominioFastMail(correos, i + 1);
-            }
 
+            }
+            ImprimirPorDominioFastMail(correos, i + 1);
         }
 
     }
